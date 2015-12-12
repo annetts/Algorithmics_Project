@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.project.algorithms.Algorithm;
-import com.videos.algorithms.AbstractAlgorithm;
-import com.videos.algorithms.AlgorithmRegister;
+import com.project.data.AbstractAlgorithm;
+import com.project.data.AlgorithmRegister;
 
 @Controller
 @RequestMapping("/list")

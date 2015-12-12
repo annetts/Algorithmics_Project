@@ -1,4 +1,4 @@
-package com.videos.algorithms;
+package com.project.data;
 
 public class Random2 extends AbstractAlgorithm {
 
