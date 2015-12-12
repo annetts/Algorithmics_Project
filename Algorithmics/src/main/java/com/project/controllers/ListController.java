@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.project.videos.Algorithm;
+import com.project.algorithms.Algorithm;
 import com.videos.algorithms.AbstractAlgorithm;
 import com.videos.algorithms.AlgorithmRegister;
 

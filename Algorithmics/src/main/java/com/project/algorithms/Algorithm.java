@@ -1,4 +1,4 @@
-package com.project.videos;
+package com.project.algorithms;
 
 public class Algorithm {
 
