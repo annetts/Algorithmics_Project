@@ -19,14 +19,14 @@
 			
 			<div class="col-sm-6">
 				First algorithm:
-				<select ng-model="selectedItem">
+				<select ng-model="selectedItem_0">
 					<option ng-repeat="algorithm in algorithms" value="{{algorithm.name}}">{{algorithm.name}}</option>
 				</select>
 			</div>
 			
 			<div class="col-sm-6">
 				Second algorithm:
-				<select ng-model="selectedItem">
+				<select ng-model="selectedItem_1">
 					<option ng-repeat="algorithm in algorithms" value="{{algorithm.name}}">{{algorithm.name}}</option>
 				</select>
 			</div>
