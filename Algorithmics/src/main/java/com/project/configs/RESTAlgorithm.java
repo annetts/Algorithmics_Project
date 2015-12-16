@@ -1,6 +1,6 @@
-package com.project.algorithms;
+package com.project.configs;
 
-public class Algorithm {
+public class RESTAlgorithm {
 
 	private String name;
 

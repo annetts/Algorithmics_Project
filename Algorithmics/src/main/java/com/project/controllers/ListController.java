@@ -8,9 +8,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.project.algorithms.Algorithm;
-import com.project.data.AbstractAlgorithm;
+import com.project.configs.RESTAlgorithm;
 import com.project.data.AlgorithmRegister;
+import com.project.data.algorithms.AbstractAlgorithm;
 
 @Controller
 @RequestMapping("/list")
@@ -25,10 +25,10 @@ public class ListController {
 	public String getAlgrithmListJSON(Model model) {
 		AlgorithmRegister register = new AlgorithmRegister();
 
-		List<Algorithm> list = new LinkedList<Algorithm>();
+		List<RESTAlgorithm> list = new LinkedList<RESTAlgorithm>();
 		
 		for (AbstractAlgorithm reg : register.getList()) {
-			Algorithm a = new Algorithm();
+			RESTAlgorithm a = new RESTAlgorithm();
 			a.setName(reg.getName());
 			list.add(a);
 		}

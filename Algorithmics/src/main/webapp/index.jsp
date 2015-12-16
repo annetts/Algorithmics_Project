@@ -7,6 +7,8 @@
 	<title>Algorithmics</title>
 	
 	<link rel="stylesheet" href="resources/bootstrap.min.css">
+	
+	<script type="text/javascript" src="resources/jquery-2.1.4.min.js"></script>
 	<script type="text/javascript" src="resources/angular.min.js"></script>
 	<script type="text/javascript" src="resources/connector.js"></script>
 	
@@ -15,20 +17,24 @@
 <body  ng-app="projectApp">
 	
 	<div class="text-center">
-		<div ng-controller="CountryCtrl" class="row">
+		<div ng-controller="SelectCtrl" class="row">
 			
-			<div class="col-sm-6">
+			<div class="col-sm-4">
 				First algorithm:
 				<select ng-model="selectedItem_0">
 					<option ng-repeat="algorithm in algorithms" value="{{algorithm.name}}">{{algorithm.name}}</option>
 				</select>
 			</div>
 			
-			<div class="col-sm-6">
+			<div class="col-sm-4">
 				Second algorithm:
 				<select ng-model="selectedItem_1">
 					<option ng-repeat="algorithm in algorithms" value="{{algorithm.name}}">{{algorithm.name}}</option>
 				</select>
+			</div>
+			
+			<div class="col-sm-4">
+				<button ng-click="reset()">START</button>
 			</div>
 		</div>
 

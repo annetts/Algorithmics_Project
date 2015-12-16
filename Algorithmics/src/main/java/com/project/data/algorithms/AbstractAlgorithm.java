@@ -1,4 +1,6 @@
-package com.project.data;
+package com.project.data.algorithms;
+
+import com.project.graph.NodeData;
 
 public abstract class AbstractAlgorithm {
 
@@ -7,6 +9,9 @@ public abstract class AbstractAlgorithm {
 	public AbstractAlgorithm(String name) {
 		this.name = name;
 	}
+	
+	public abstract NodeData node();
+	
 	
 	public String getName() {
 		return name;
