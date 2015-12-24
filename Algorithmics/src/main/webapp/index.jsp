@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -16,30 +16,25 @@
 
 <body  ng-app="projectApp">
 	
-	<div class="text-center">
-		<div ng-controller="SelectCtrl" class="row">
-			
-			<div class="col-sm-4">
-				First algorithm:
-				<select ng-model="selectedItem_0">
-					<option ng-repeat="algorithm in algorithms" value="{{algorithm.name}}">{{algorithm.name}}</option>
-				</select>
-			</div>
-			
-			<div class="col-sm-4">
-				Second algorithm:
-				<select ng-model="selectedItem_1">
-					<option ng-repeat="algorithm in algorithms" value="{{algorithm.name}}">{{algorithm.name}}</option>
-				</select>
-			</div>
-			
-			<div class="col-sm-4">
-				<button ng-click="reset()">START</button>
-			</div>
-		</div>
-
+	<div class="container">
 		<div class="row">
-			<div class="col-md-12">
+			<div ng-controller="SelectCtrl" class="col-md-3">
+				<div class = "well">
+					First algorithm:
+					<select ng-model="selectedItem_0">
+						<option ng-repeat="algorithm in algorithms" value="{{algorithm.name}}">{{algorithm.name}}</option>
+					</select>
+					<br>
+					Second algorithm:
+					<select ng-model="selectedItem_1">
+						<option ng-repeat="algorithm in algorithms" value="{{algorithm.name}}">{{algorithm.name}}</option>
+					</select>
+					<br>
+					<button class="btn btn-default" ng-click="reset()">START</button>
+				</div>
+			</div>
+
+			<div class="col-md-9">
 				<canvas id="mainCanvas" width="560" height="560" style="border:2px solid #d3d3d3;">
 				Your browser does not support canvas
 				</canvas>
