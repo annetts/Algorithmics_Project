@@ -55,9 +55,12 @@ public class Game {
 		Byte[] afterBoard = null;
 		if (firstAlgTurn) {
 			afterBoard = algorithm1.nextBoard(beforeBoard, 1);
+			firstAlgTurn = false;
 		} else {
 			afterBoard = algorithm2.nextBoard(beforeBoard, 2);
+			firstAlgTurn = true;
 		}
+		boards.add(afterBoard);
 		return afterBoard;
 	}
 	
