@@ -6,9 +6,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.project.configs.RESTAlgorForm;
-import com.project.data.Game;
+import com.project.data.GameHelper;
 
 @Controller
 @RequestMapping("/start")
@@ -21,7 +23,10 @@ public class StartController {
 	 */
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<Void> getPlayable(@ModelAttribute RESTAlgorForm form) {
-		Game.addGame(form.getAlgor1(), form.getAlgor2());
+		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+		String id = attr.getSessionId();
+		// create game, use session id as identifier.
+		GameHelper.addGame(form.getAlgor1(), form.getAlgor2(), id);
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
 }

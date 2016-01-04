@@ -1,7 +1,5 @@
 package com.project.data.algorithms;
 
-import com.project.graph.NodeData;
-
 public abstract class AbstractAlgorithm {
 
 	private String name;
@@ -10,7 +8,7 @@ public abstract class AbstractAlgorithm {
 		this.name = name;
 	}
 	
-	public abstract NodeData node();
+	public abstract Byte[] nextBoard(Byte[] beforeBoard, Integer color);
 	
 	
 	public String getName() {

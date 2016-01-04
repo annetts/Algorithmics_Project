@@ -1,6 +1,11 @@
-import java.util.*;
+package com.project.data.algorithms;
 
 import static java.util.Arrays.asList;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Random;
 
 public class RandomMoves {
 
