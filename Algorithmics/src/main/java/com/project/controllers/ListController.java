@@ -23,11 +23,10 @@ public class ListController {
 	 */
 	@RequestMapping(method = RequestMethod.GET)
 	public String getAlgrithmListJSON(Model model) {
-		AlgorithmRegister register = new AlgorithmRegister();
 
 		List<RESTAlgorithm> list = new LinkedList<RESTAlgorithm>();
 		
-		for (AbstractAlgorithm reg : register.getList()) {
+		for (AbstractAlgorithm reg : AlgorithmRegister.getInstance().getList()) {
 			RESTAlgorithm a = new RESTAlgorithm();
 			a.setName(reg.getName());
 			list.add(a);

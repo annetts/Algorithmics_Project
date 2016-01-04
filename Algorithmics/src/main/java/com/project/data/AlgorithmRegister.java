@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.project.data.algorithms.AbstractAlgorithm;
-import com.project.data.algorithms.Random;
-import com.project.data.algorithms.Random2;
+import com.project.data.algorithms.RandomMove;
+import com.project.data.algorithms.MiniMax;
 
 /**
  * Algorithm register. Add all new algorithms here. They will automagically
@@ -14,16 +14,33 @@ import com.project.data.algorithms.Random2;
  */
 public class AlgorithmRegister {
 
+	private static AlgorithmRegister instance = null;
 	private List<AbstractAlgorithm> list;
+	
+	public static AlgorithmRegister getInstance() {
+		if (instance == null) {
+			instance = new AlgorithmRegister();
+		}
+		return instance;
+	}
 
 	public AlgorithmRegister() {
-		list = new ArrayList<AbstractAlgorithm>(); 
-		list.add(new Random());
-		list.add(new Random2());
+		list = new ArrayList<AbstractAlgorithm>();
+		list.add(new RandomMove());
+		list.add(new MiniMax());
 	}
 
 	public List<AbstractAlgorithm> getList() {
 		return list;
 	}
-	
+
+	public AbstractAlgorithm getByString(String algorithm) {
+		for (AbstractAlgorithm alg : list) {
+			if (algorithm.equals(alg.getName())) {
+				return alg;
+			}
+		}
+		return null;
+	}
+
 }
