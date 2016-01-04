@@ -1,0 +1,12 @@
+Introduction
+This project introduces the MiniMax algorithm usage in the game of checkers. To test the MiniMax algorithm we implemented our own random choice algorithm. We also implemented a web appication to 
+better visualize the moves of the algoritms in action.
+
+Random
+The random algorithm in this case chooses the next move without any knowledge of the previous move or the current situation. Also the opponents and its own button placement is unknown to the algorithm.   
+
+MiniMax
+The MiniMax algorithm 
+
+Conclusion
+
