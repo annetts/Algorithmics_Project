@@ -10,7 +10,6 @@
 	
 	<script type="text/javascript" src="resources/jquery-2.1.4.min.js"></script>
 	<script type="text/javascript" src="resources/angular.min.js"></script>
-	<script type="text/javascript" src="resources/connector.js"></script>
 	
 </head>
 
@@ -42,6 +41,7 @@
 		</div>
 	</div>
 
-<script type="text/javascript" src="resources/logic.js"></script>
+	<script type="text/javascript" src="resources/logic.js"></script>
+	<script type="text/javascript" src="resources/connector.js"></script>
 </body>
 </html>

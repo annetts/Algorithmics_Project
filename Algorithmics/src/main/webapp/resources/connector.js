@@ -21,8 +21,19 @@ app.controller('SelectCtrl', function ($scope, $http){
   		transformRequest: transform
   		})
   		.success(function (data, status) {
-  			
+  			setInterval(update, 1000);
   		});
+  	
+  		function update() {
+  			$http.get('next').success(function(data1) {
+  				for (var key in data1.next[0].board) {
+  					buttons[key] = data1.next[0].board[key];
+  					clearCanvas();
+  					drawBoard();
+  					drawButtons();
+  				}
+  			});
+  		}
   };
   
 });
