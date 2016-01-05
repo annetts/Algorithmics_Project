@@ -27,17 +27,26 @@ public class GameBoardHelper {
 
 	private static List<Byte[]> getMoves(Integer index, Byte[] beforeBoard) {
 		List<Byte[]> list = new ArrayList<Byte[]>();
+
+		int move1 = 0;
+		int move2 = 0;
+		
 		if (beforeBoard[index] == 1) {
-			index = -index;
-		}
-		int move1 = index + 7;
-		int move2 = index + 9;
-		if (isValidMove(Math.abs(index), Math.abs(move1), beforeBoard)) {
-			list.add(generateMove(Math.abs(index), Math.abs(move1), beforeBoard));
+			move1 = index - 7;
+			move2 = index - 9;
 		}
 		
-		if (isValidMove(Math.abs(index), Math.abs(move2), beforeBoard)) {
-			list.add(generateMove(Math.abs(index), Math.abs(move2), beforeBoard));
+		if (beforeBoard[index] == 2) {
+			move1 = index + 7;
+			move2 = index + 9;
+		}
+		
+		if (isValidMove(index, move1, beforeBoard)) {
+			list.add(generateMove(index, move1, beforeBoard));
+		}
+		
+		if (isValidMove(index, move2, beforeBoard)) {
+			list.add(generateMove(index, move2, beforeBoard));
 		}
 		return list;
 	}
@@ -53,10 +62,9 @@ public class GameBoardHelper {
 
 	private static boolean isValidMove(Integer index, int move, Byte[] beforeBoard) {
 		if (move < 0 || move > 63) return false;
-		if (beforeBoard[move] == 69) return false;
-		if (beforeBoard[move] != 0) return false;
-		return true;
-	}
+		if (beforeBoard[move] == 0) return true;
+		return false;
+	}	
 	
 	private static List<Byte[]> getJumps(Integer index, Byte[] beforeBoard) {
 		List<Byte[]> list = new ArrayList<Byte[]>();

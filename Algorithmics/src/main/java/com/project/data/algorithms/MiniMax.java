@@ -12,5 +12,4 @@ public class MiniMax extends AbstractAlgorithm {
 		return null;
 	}
 
-
 }
