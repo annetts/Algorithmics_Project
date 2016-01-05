@@ -6,7 +6,9 @@ import java.util.Random;
 import com.project.data.GameBoardHelper;
 
 public class RandomMove extends AbstractAlgorithm {
-	
+
+	private Random random;
+
 	public RandomMove() {
 		super("Random Algorithm");
 	}
@@ -14,8 +16,16 @@ public class RandomMove extends AbstractAlgorithm {
 	@Override
 	public Byte[] nextBoard(Byte[] beforeBoard, Integer color) {
 		List<Byte[]> possibleMove = GameBoardHelper.generateMoves(beforeBoard, color);
-		Random random = new Random();
-		return possibleMove.get(random.nextInt(possibleMove.size()));
+		List<Byte[]> possibleJumpMove = GameBoardHelper.generateJumpMoves(beforeBoard, color);
+		random = new Random();
+
+		System.out.println(possibleJumpMove);
+		//System.out.println(possibleMove);
+		if (!possibleJumpMove.isEmpty()) {
+			return possibleJumpMove.get(random.nextInt(possibleJumpMove.size()));
+		} else {
+			return possibleMove.get(random.nextInt(possibleMove.size()));
+
+		}
 	}
-	
 }
