@@ -48,7 +48,7 @@
 
 	</dependencies>
 	<build>
-		<finalName>HelloWorld</finalName>
+		<finalName>Algorithm</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>

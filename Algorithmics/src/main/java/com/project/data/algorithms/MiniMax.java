@@ -20,36 +20,12 @@ public class MiniMax extends AbstractAlgorithm {
 
 		List<Byte[]> possibleMove = GameBoardHelper.generateMoves(beforeBoard, color);
 		
-		System.out.println(possibleMove);
-		
 		return null;
 	}
 
-	public double getValue() {
-		return value;
-	}
+	
 
-	public void setValue(double value) {
-		this.value = value;
-	}
-
-	public boolean isCapture() {
-		return isCapture;
-	}
-
-	public void setCapture(boolean isCapture) {
-		this.isCapture = isCapture;
-	}
-
-	public void setChildren(LinkedList<MiniMax> children) {
-		this.children = children;
-	}
-
-	public List<MiniMax> getChildren() {
-		return this.children;
-	}
-
-	public double minimax(boolean isComputer) {
+	/*public double minimax(boolean isComputer) {
 		if (this.getChildren().isEmpty()) {
 			return this.getValue();
 		}
@@ -87,6 +63,6 @@ public class MiniMax extends AbstractAlgorithm {
 		}
 
 		return best;
-	}
-
+	}*/
 }
+
