@@ -6,8 +6,6 @@ import java.util.List;
 
 public class GameBoardHelper {
 
-    private static int jump;
-
     public static List<Byte[]> generateJumpMoves(Byte[] beforeBoard, int color) {
         List<Byte[]> nextPossibleJumpMoves = new ArrayList<Byte[]>();
         for (int i = 0; i < beforeBoard.length; i++) {
@@ -72,7 +70,7 @@ public class GameBoardHelper {
 
     private static List<Byte[]> recursiveJumps(Integer start, Byte[] beforeBoard) {
         List<Byte[]> list = new ArrayList<Byte[]>();
-        // initial jump tries
+        
         int move1 = start + 14;
         int jump1 = start + 7;
         if (isValidJump(start, jump1, move1, beforeBoard)) {
@@ -80,7 +78,7 @@ public class GameBoardHelper {
             list.add(board);
             list.addAll(recursiveJumps(move1, board));
         }
-     
+        
         int move2 = start - 14;
         int jump2 = start - 7;
         if (isValidJump(start, jump2, move2,  beforeBoard)) {
@@ -107,56 +105,6 @@ public class GameBoardHelper {
         
         return list;
     }
-
-//    private static List<Byte[]> getJumps(Integer index, Byte[] beforeBoard) {
-//        List<Byte[]> list = new ArrayList<Byte[]>();
-//
-//        int move3 = 0;
-//        int move4 = 0;
-//        int move5 = 0;
-//        int move6 = 0;
-//
-//        for (jump = 1; jump <= 12; jump++) {
-//            if (beforeBoard[index] == 1) {
-//
-//                if (((index - (7 * 2 * jump)) > 0) && (beforeBoard[(index - (7 * jump))] == 2) && (beforeBoard[(index - (7 * 2 * jump))] == 0)) {
-//                    move3 = index - (7 * 2 * jump); // up right
-//                    list.add(generateJumps(index, (index - (7 * jump)), move3, beforeBoard));
-//                }
-//                if (((index - (9 * 2 * jump)) > 0) && (beforeBoard[(index - (9 * jump))] == 2) && (beforeBoard[(index - (9 * 2 * jump))] == 0)) {
-//                    move4 = index - (9 * 2 * jump); // up left
-//                    list.add(generateJumps(index, (index - (9 * jump)), move4, beforeBoard));
-//                }
-//                if (((index + (7 * 2 * jump)) < 63) && (beforeBoard[(index + (7 * jump))] == 2) && (beforeBoard[(index + (7 * 2 * jump))] == 0)) {
-//                    move5 = index + (7 * 2 * jump); // down right
-//                    list.add(generateJumps(index, (index + (7 * jump)), move5, beforeBoard));
-//                }
-//                if (((index + (9 * 2 * jump)) < 63) && (beforeBoard[(index + (9 * jump))] == 2) && (beforeBoard[(index + (9 * 2 * jump))] == 0)) {
-//                    move6 = index + (9 * 2 * jump); // down left
-//                    list.add(generateJumps(index, (index + (9 * jump)), move6, beforeBoard));
-//                }
-//            }
-//            if (beforeBoard[index] == 2) {
-//                if (((index - (7 * 2 * jump)) > 0) && (beforeBoard[(index - (7 * jump))] == 1) && (beforeBoard[(index - (7 * 2 * jump))] == 0)) {
-//                    move3 = index - (7 * 2 * jump); // up right
-//                    list.add(generateJumps(index, (index - (7 * jump)), move3, beforeBoard));
-//                }
-//                if (((index - (9 * 2 * jump)) > 0) && (beforeBoard[(index - (9 * jump))] == 1) && (beforeBoard[(index - (9 * 2 * jump))] == 0)) {
-//                    move4 = index - (9 * 2 * jump); // up left
-//                    list.add(generateJumps(index, (index - (9 * jump)), move4, beforeBoard));
-//                }
-//                if (((index + (7 * 2 * jump)) < 63) && (beforeBoard[(index + (7 * jump))] == 1) && (beforeBoard[(index + (7 * 2 * jump))] == 0)) {
-//                    move5 = index + (7 * 2 * jump); // down right
-//                    list.add(generateJumps(index, (index + (7 * jump)), move5, beforeBoard));
-//                }
-//                if (((index + (9 * 2 * jump)) < 63) && (beforeBoard[(index + (9 * jump))] == 1) && (beforeBoard[(index + (9 * 2 * jump))] == 0)) {
-//                    move6 = index + (9 * 2 * jump); // down left
-//                    list.add(generateJumps(index, (index + (9 * jump)), move6, beforeBoard));
-//                }
-//            }
-//        }
-//        return list;
-//    }
 
 	private static Byte[] generateMove(int start, int move, Byte[] beforeBoard) {
 		Byte[] board = Arrays.copyOf(beforeBoard, beforeBoard.length);

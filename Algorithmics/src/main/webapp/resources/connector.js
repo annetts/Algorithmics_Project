@@ -15,14 +15,15 @@ app.controller('SelectCtrl', function ($scope, $http){
   	var transform = function(data){
         return $.param(data);
     }
-  	
+  	var timer;
   	$http.post('start', data, {
   		headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
   		transformRequest: transform
   		})
   		.success(function (data, status) {
-  			setInterval(update, 1000);
-  		});
+  			timer = setInterval(update, 1000);
+  		})
+  		;
   	
   		function update() {
   			$http.get('next').success(function(data1) {
@@ -32,6 +33,9 @@ app.controller('SelectCtrl', function ($scope, $http){
   					drawBoard();
   					drawButtons();
   				}
+  			}).error(function(data, status) {
+  				clearTimeout(timer);
+  				drawWin("GAME OVER!");
   			});
   		}
   };
