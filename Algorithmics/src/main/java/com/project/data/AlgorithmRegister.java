@@ -4,8 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.project.data.algorithms.AbstractAlgorithm;
+import com.project.data.algorithms.AlphaBetaPruning;
+import com.project.data.algorithms.MiniMax1;
+import com.project.data.algorithms.MiniMax5;
+import com.project.data.algorithms.MiniMax2;
 import com.project.data.algorithms.RandomMove;
-import com.project.data.algorithms.MiniMax;
 
 /**
  * Algorithm register. Add all new algorithms here. They will automagically
@@ -27,7 +30,10 @@ public class AlgorithmRegister {
 	public AlgorithmRegister() {
 		list = new ArrayList<AbstractAlgorithm>();
 		list.add(new RandomMove());
-		list.add(new MiniMax());
+		list.add(new MiniMax1());
+		list.add(new MiniMax2());
+		list.add(new MiniMax5());
+		list.add(new AlphaBetaPruning());
 	}
 
 	public List<AbstractAlgorithm> getList() {

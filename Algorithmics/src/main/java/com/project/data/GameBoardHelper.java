@@ -75,32 +75,40 @@ public class GameBoardHelper {
         int jump1 = start + 7;
         if (isValidJump(start, jump1, move1, beforeBoard)) {
             Byte[] board = generateJumps(start, jump1, move1, beforeBoard);
-            list.add(board);
-            list.addAll(recursiveJumps(move1, board));
+            
+            if (!list.addAll(recursiveJumps(move1, board))) {
+            	list.add(board);
+            }
         }
         
         int move2 = start - 14;
         int jump2 = start - 7;
         if (isValidJump(start, jump2, move2,  beforeBoard)) {
             Byte[] board = generateJumps(start, jump2, move2, beforeBoard);
-            list.add(board);
-            list.addAll(recursiveJumps(move2, board));
+            
+            if (!list.addAll(recursiveJumps(move2, board))) {
+            	list.add(board);
+            }
         }
         
         int move3 = start + 18;
         int jump3 = start + 9;
         if (isValidJump(start, jump3, move3,  beforeBoard)) {
             Byte[] board = generateJumps(start, jump3, move3, beforeBoard);
-            list.add(board);
-            list.addAll(recursiveJumps(move3, board));
+            
+            if (!list.addAll(recursiveJumps(move3, board))) {
+            	list.add(board);
+            }
         }
         
         int move4 = start - 18;
         int jump4 = start - 9;
         if (isValidJump(start, jump4, move4,  beforeBoard)) {
             Byte[] board = generateJumps(start, jump4, move4, beforeBoard);
-            list.add(board);
-            list.addAll(recursiveJumps(move4, board));
+           
+            if (!list.addAll(recursiveJumps(move4, board))) {
+                list.add(board);            	
+            }
         }
         
         return list;

@@ -29,6 +29,8 @@
 						<option ng-repeat="algorithm in algorithms" value="{{algorithm.name}}">{{algorithm.name}}</option>
 					</select>
 					<br>
+					<input type="text" ng-model="speed">
+					<br>
 					<button class="btn btn-default" ng-click="reset()">START</button>
 				</div>
 			</div>

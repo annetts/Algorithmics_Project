@@ -66,7 +66,7 @@ function drawWin(text) {
 	// Fill with gradient
 	ctx.fillStyle=gradient;
 	
-	ctx.fillText(text, 200, 280);
+	ctx.fillText(text, 140, 280);
 }
 
 function drawBlock(iRowCounter, iBlockCounter) {   

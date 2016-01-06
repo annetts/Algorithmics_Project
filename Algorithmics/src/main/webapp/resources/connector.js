@@ -21,7 +21,7 @@ app.controller('SelectCtrl', function ($scope, $http){
   		transformRequest: transform
   		})
   		.success(function (data, status) {
-  			timer = setInterval(update, 1000);
+  			timer = setInterval(update, $scope.speed);
   		})
   		;
   	
