@@ -53,12 +53,17 @@ public class MiniMax extends AbstractAlgorithm {
 			return 1;
 	}
 
-	public Byte[] findBestBoard(int color, Byte[] boardEvalueteMap) {
-		for (Byte bestBoard : boardEvalueteMap) {
+	public Byte[] findBestBoard(Integer color, Byte[] boardEvalueteMap) {
+		Byte[] bestBoard = null;
+	
+		for (Byte bestBoard1 : boardEvalueteMap) {
+			for (Byte bestBoard2 : boardEvalueteMap) {
+		
 			if (color == 1)
-				bestBoard = maxBoard(bestBoard, iterator.next());
+				bestBoard = maxBoard(bestBoard1, bestBoard2); //next board
 			else
-				bestBoard = minBoard(bestBoard, iterator.next());
+				bestBoard = minBoard(bestBoard1, bestBoard2);
+			}
 		}
 		return bestBoard;
 	}
@@ -66,44 +71,36 @@ public class MiniMax extends AbstractAlgorithm {
 	// The minimax algorithm without alpha-beta cutoff.
 	@Override
 	public Byte[] nextBoard(Byte[] beforeBoard, Integer color) {
-
-		List<Byte[]> possibleMoves = GameBoardHelper.generateMoves(beforeBoard, color);
 		
-		if (possibleMoves.size() == 0)
-			return null;
-		
-		if (color == 1){
-			for (Byte[] board : possibleMoves) {
-				boardEvalueteMap.put(board, evaluate(board));
-				return findBestBoard(color, boardEvalueteMap);
-			}
-		}
-		if (color == 2){
-			
-		}
-				
-		
-		return null;
+		return minimax(beforeBoard, 1, color);
 	}
 
 	public static Byte[] minimax(Byte[] beforeBoard, int recursion, Integer color){
 			if (recursion > 0) {
 				 List<Byte[]> possibleMoves = null;
-		         possibleMoves = GameBoardHelper.generateMoves(beforeBoard, color);
+				 List<Byte[]> possibleJumpMoves = null;
+				 
+				 possibleMoves = GameBoardHelper.generateMoves(beforeBoard, color);
+	        	 possibleJumpMoves = GameBoardHelper.generateJumpMoves(beforeBoard, color);
+				 
 		         if (possibleMoves.size() == 0)
 		            return null;
 		         if (color == 1) {   // White aka 1 - min node.
+		        	 
+		         }
 		        	 for (Byte[] board : possibleMoves) {
-		        		 boardEvalueteMap.put(minimax(executeMove(board, beforeBoard), 
-		                                     recursion - 1, opponent(color)));
-		            return findBestBoard(color, boardEvalueteMap);
+		        		 boardEvalueteMap.put(minimax(board, recursion - 1, opponent(color)));
+		        		 return findBestBoard(color, boardEvalueteMap);
+		        	 }
 		         } else {      // Black aka 2 - max node.
 		        	 for (Byte[] board : possibleMoves) {
-		        		 boardEvalueteMap.add(minimax(executeMove(board, beforeBoard), 
-		                                           recursion - 1, opponent(color)));
-		            return findBestBoard(color, boardEvalueteMap);
-		         } else {
-		         return board;   // Recursion done -> leaf in game tree.
+		        		 boardEvalueteMap.put(minimax(board, recursion - 1, opponent(color)));
+		        		 return findBestBoard(color, boardEvalueteMap);
+		         } 
+		         }	else {
+		       return board;   // Recursion done -> leaf in game tree.
 		   }
 			
 		}
+		         
+		         
