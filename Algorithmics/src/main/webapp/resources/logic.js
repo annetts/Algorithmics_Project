@@ -56,6 +56,19 @@ function drawRow(counter) {
 	}
 }
 
+function drawWin(text) {
+	ctx.font = "40px Arial";
+	// Create gradient
+	var gradient=ctx.createLinearGradient(0,0,c.width,0);
+	gradient.addColorStop("0","magenta");
+	gradient.addColorStop("0.5","blue");
+	gradient.addColorStop("1.0","red");
+	// Fill with gradient
+	ctx.fillStyle=gradient;
+	
+	ctx.fillText(text, 200, 280);
+}
+
 function drawBlock(iRowCounter, iBlockCounter) {   
 	// Set the background
 	ctx.fillStyle = getBlockColour(iRowCounter, iBlockCounter);

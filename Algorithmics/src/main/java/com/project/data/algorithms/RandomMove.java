@@ -15,7 +15,6 @@ public class RandomMove extends AbstractAlgorithm {
 
 	@Override
 	public Byte[] nextBoard(Byte[] beforeBoard, Integer color) {
-		List<Byte[]> possibleMove = GameBoardHelper.generateMoves(beforeBoard, color);
 		List<Byte[]> possibleJumpMove = GameBoardHelper.generateJumpMoves(beforeBoard, color);
 		random = new Random();
 
@@ -24,6 +23,7 @@ public class RandomMove extends AbstractAlgorithm {
 		if (!possibleJumpMove.isEmpty()) {
 			return possibleJumpMove.get(random.nextInt(possibleJumpMove.size()));
 		} else {
+			List<Byte[]> possibleMove = GameBoardHelper.generateMoves(beforeBoard, color);
 			return possibleMove.get(random.nextInt(possibleMove.size()));
 
 		}
